@@ -14,6 +14,15 @@ class App
     # the options Hash
   end
 
+  options['input'] = 'data/input.xml'
+  on("-i INPUT_FILE", "--input", "Input XML file")
+
+  options['output'] = 'output'
+  on("-o OUTPUT_FOLDER", "--output","Folder for output HTML")
+
+  options['layout'] = 'simple'
+  on("-l STYLE", "--layout", "Set the layout for output HTML")
+
   # supplemental methods here
 
   # Declare command-line interface here
@@ -30,7 +39,7 @@ class App
   # Or, just call OptionParser methods on opts
   #
   # Require an argument
-  # arg :some_arg 
+  # arg :some_arg
   #
   # # Make an argument optional
   # arg :optional_arg, :optional
