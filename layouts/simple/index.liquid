@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ title }}</title>
+  <style type="text/css">
+    nav {
+      margin: 10px;
+      height: 20px;
+    }
+    nav ul li {
+      float: left;
+      margin: 0 10px;
+      list-style-type: none;
+    }
+
+    li.thumbnail{
+      float: left;
+      margin: 10px;
+      list-style-type: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{{ title }}</h1>
+  </header>
+  <nav>
+    <ul>
+      {% for link in nav_static_links %}
+        <li>
+          <a href="{{ link[1] }}">{{ link[0] | capitalize }}</a>
+        </li>
+      {% endfor %}
+
+      {% for item in nav_dynamic_items %}
+        <li>
+          <a href="{{ nav_dynamic_prefix }}{{ item.id }}.html">{{ item.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <main>
+    <ul>
+      {% for image in images %}
+        <li class="thumbnail">
+          <a href="{{ image.large_image_url }}" target="_blank">
+            <img src="{{ image.small_image_url }}"/>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>

@@ -8,11 +8,11 @@ class App
   include Methadone::Main
   include Methadone::CLILogging
 
-  main do # Add args you want: |like,so|
-    # your program code here
-    # You can access CLI options via
-    # the options Hash
+  main do
+    RedBubble::Generator.run(options)
   end
+
+  description "Generate static HTML gallery from the input XML file"
 
   options['input'] = 'data/input.xml'
   on("-i INPUT_FILE", "--input", "Input XML file")
@@ -27,7 +27,7 @@ class App
 
   # Declare command-line interface here
 
-  # description "one line description of your app"
+
   #
   # Accept flags via:
   # on("--flag VAL","Some flag")
