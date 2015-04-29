@@ -1,9 +1,5 @@
-Feature: My bootstrapped app kinda works
-  In order to get going on coding my awesome app
-  I want to have aruba and cucumber setup
-  So I don't have to do it myself
-
-  Scenario: App just runs
+Feature: My app works
+  Scenario: App shows help
     When I get help for "red_bubble"
     Then the exit status should be 0
     And the banner should be present
@@ -14,3 +10,8 @@ Feature: My bootstrapped app kinda works
       |--output|
       |--layout|
     And the banner should document that this app takes no arguments
+
+  Scenario: App generates index html file
+    When I run `red_bubble -i ../../data/input.xml`
+    Then the exit status should be 0
+    And the "output" folder contains "index.html" file

@@ -18,4 +18,11 @@ module RedBubble
       end
     end
   end
+  def self.root
+    File.expand_path '../..', __FILE__
+  end
+
+  def self.layouts
+    File.join root, 'layouts'
+  end
 end

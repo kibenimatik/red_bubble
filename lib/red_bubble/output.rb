@@ -68,7 +68,7 @@ module RedBubble
     end
 
     def render_file(name, liquid_options={})
-      template_file = File.read("layouts/#{options[:layout]}/index.liquid")
+      template_file = File.read(File.join(RedBubble.layouts, "#{options[:layout]}/index.liquid"))
       output_file_name = File.join(options[:output_folder], name)
       output_file = File.open(output_file_name, 'w+')
 
